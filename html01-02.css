@@ -1,0 +1,10 @@
+h2{
+    color: blueviolet;
+    border: 2px dashed yellow;
+}
+
+h3{
+    font-style: italic;
+    color: teal;
+    background-color: tomato;
+}

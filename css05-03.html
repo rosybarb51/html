@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 5-3</title>
+    <style>
+        table { 
+            /* border-collapse해주면 선이 안과 밖이 다 합쳐진다.(밑에 th, td에 dotted 선 설정 지워주면... 얘설정으로 합쳐져서 나옴)
+            배경색 테두리 효과
+            */
+            border-collapse: collapse; }
+        
+        th, td { 
+            height: 20px;
+            width: 100px;
+            padding: 5px;
+            text-align: left;
+         }
+        
+        thead, tfoot {
+            background-color: rgb(193, 148, 216);
+            /* thead 밑에 color 바로 넣을 수 있는 이유 : color 속성은 상속되기 때문에 th 태그에게 까지 상속됨 */
+            color: rgb(255, 252, 93);
+        }
+        
+        
+
+        /* 짝수 번째 행의 배경색을 다른색으로 지정 */
+        /* odd 홀수 even 짝수 */
+        tbody tr:nth-child(even) {
+            background-color : rgb(228, 225, 225);
+        }
+
+        /* 마우스 올리면 그 줄의 배경색이 변한다. td 에다가 하면 단어 한 자만 색이 변해서, tr로 설정을 해줘야한다. (봐가면서~) */
+        tbody tr:hover {
+            background-color: indianred;
+        }
+
+        /* [] 여기안의 조건이 맞으면 {} 여기의 값을 실행한다!
+        div4의 자식태그인 input 태그 중에서  type이 text인 애만 선택해서 컬러를 빨간색으로 출력한다. */
+        #div4 input[type="text"] {
+            color: indianred;
+
+        }
+        /* 이 방법이나 */
+        /* [type=text]를 이용해서 지정하는 것... 위의 설명처럼!  */
+        #div4 label input[type="text"] {
+            border: 2px solid dodgerblue;
+            border-radius: 5px;
+        }
+        /* 이 방법이나 똑같은 결과  */
+        #text2 {
+            border: 2px solid dodgerblue;
+            border-radius: 5px;
+        }
+
+        /* 마우스 갖다 대면 색 변한다 */
+        #div4 input[type="text"]:hover {
+            background-color: darkorange;
+        }
+
+        /* 클릭을 하면 커진다 */
+        #div4 input[type="text"]:focus {
+            font-size: 1.2rem;
+        }
+
+    </style>
+</head>
+<body>
+    <h3>table 꾸미기</h3>
+    <table >
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>가격</th>
+                <th>개수</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <!-- 실제내용을적을땐 td로 적는다 -->
+                <td>밀크티</td>
+                <td>2000</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <!-- td를 이렇게 세로로 적는 게 보기 더 편하다 -->
+                <td>붕어빵</td>
+                <td>1000</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>호떡</td>
+                <td>2000</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>계란빵</td>
+                <td>1000</td>
+                <td>2</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>합</th>
+                <th>6000</th>
+                <th>10</th>
+            </tr>
+        </tfoot>
+    </table>
+    
+
+    <br><hr><br>
+
+    <h3>폼 꾸미기</h3>
+    <div id="div4">
+        <!-- for 속성값에 input 태그의 id 값을 입력하여 두 태그를 연동 (text1으로 연동함) -->
+        <label for="text1">이름 : </label>
+        <input type="text" id="text1"
+        placeholder="이름을 입력하세요">
+        <br><br>
+        <!-- for 속성에 input 태그의 id값을 입력하지 않아도 연동됨 (라벨테그의 자식테그로 인풋테그가 들어갔으니까 상관없음) -->
+        <label for="">
+            이름 : <input type="text" id="text2"
+            placeholder="이름을 입력하세요">
+        </label>
+    </div>
+</body>
+</html>

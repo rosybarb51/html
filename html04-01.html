@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <!-- 사용자가 보는 디바이스에 너비에 맞춘다는 말 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html 4일차 1번파일</title>
+</head>
+<body>
+    <h3>버튼 사용하기</h3>
+    검색 : <input type="text" size="10">
+    <input type="button" value="Q1">
+    <button type="button">Q2</button><br>
+
+    submit 버튼 : <input type="submit" value="전송1">
+    <button type="submit">전송2</button>
+
+    reset 버튼 : <input type="reset" value="리셋1">
+    <button type="reset">리셋2</button><br>
+
+    이미지버튼 : <input type="image" src="./img/chrome.jpg" alt="이미지 버튼">
+    <input type="image" src="../chrome.jpg" alt="이미지 버튼">
+    
+    <!-- 상대경로는 현재 내 html 파일을 기준으로 내가 넣고자 하는 이미지 -->
+    <!-- 파일을 찾아가는 형식 -->
+</button>
+</body>
+</html>
+
+<br><hr><br>
+
+<h3>checkbox와 radio </h3>
+<form action="./iframe1.html">
+    <!-- 체크박스는 벨류와 이름을 동일하게 주면 안된다.** -->
+<input type="checkbox" name="check1"value="1">짜장면
+<input type="checkbox" name="check2"value="2" checked>짬뽕
+<!-- checked 넣으면 체크 된채로 나온다. 결과가 -->
+<input type="checkbox" name="check3"value="3">탕수육
+<!-- value에 넣은 값이 체크해서 넘어갈 때 저 값으로 넘어간다. 1,2,3 -->
+<!-- 뒤에 적힌 짜장면이나 짬뽕은 체크박스옆에 이름으로 나온다.  -->
+<hr>
+<!-- 라디오는 벨류와 이름을 동일하게 줘야한다.** -->
+<input type="radio" name="china" value="짜장면">짜장면
+<input type="radio" name="china" value="짬뽕">짬뽕
+<input type="radio" name="china" value="탕수육" checked>탕수육
+
+<br><hr><br>
+
+<h4>일반 selsect box</h4>
+<select name="sleChina1">
+    <option value="자장면">자장면</option>
+    <option value="짬뽕"selected>짬뽕</option>
+    <option value="탕수육">탕수육</option>
+</select>
+<br><br>
+<h4>multiple select box - ctrl 키 누르고 누르면 다중 선택 가능</h4>
+<select name="selChina2" multiple size="3">
+    <option value="자장면">자장면</option>
+    <option value="짬뽕"selected>짬뽕</option>
+    <option value="탕수육">탕수육</option>
+    <option value="깐풍기">깐풍기</option>
+    <option value="볶음밥">볶음밥</option>
+</select>
+
+
+
+<br><hr><br>
+
+<h3>label 태그 사용하기</h3>
+<label>사용자 ID : <input type="text" size="15" value=""></label><br>
+<label for="pass">비밀번호 : </label>
+<input id="pass" type="password" size="15" value=""><br>
+<label>email : </label>
+<!-- 위에 비밀번호는 for를 쓰고, 이메일은 for 가 없다 -->
+<!-- for을 쓴 비밀번호 글자 부분을 누르면 인풋태그한 입력창이 선택이 된다. -->
+<!-- 커서가 생김. -->
+<!-- for구문을 쓰거나 라벨 안에 인풋태그를 넣거나 하면 똑같은 효과@@ -->
+<!-- for을 안 쓴 email 부분을 누르면 아무런 일이 안 생긴다.  -->
+<input type="email" size="15"><br>
+
+<label for="chk1">운전면허 : </label>
+<input type="checkbox"id="chk1"value="1">있음<br>
+
+<label>결혼 : </label>
+<input type="checkbox" value="기혼">기혼
+<hr>
+
+<hr>
+<button type="submit">확인</button>
+
+<br><hr><br>
+
+<h3>컬러다이얼로그로 색 입력</h3>
+<hr>
+색 선택
+<input type="color" value="#00BFFF"
+     onchange=
+     "documen.body.style.color=this.value">
+<hr>
+
+<h3>날짜 관련 input 태그</h3>
+<pre>
+    <label for="">Month: <input type="month"value="2020-11">
+    </label><br>
+    <label>week</label>
+    <input type="week" value="2020-W45"><br>
+    <label for="">date : </label>
+    <input type="date"value="2020-11-05"><br>
+    <label>time : </label>
+    <input type="time" value="10:45"><br>
+    <label for="">lacal : </label>
+    <input type="datetime-local" value="2020-11-05T10:45:00"><br>
+</pre>
+
+
+<hr>
+<p>당신의 생일은 <span id="year">2000</span>년 <span id="mon">5</span>월 
+<span id="day">20</span>일 입니다. 
+<br>틀리면 수정하시고 파티 시간과 장소를 입력하세요!</p>
+
+<table>
+    <tr>
+        <td>생일</td>
+        <td><input type="date" id="birth" value="2000-05-20"></td>
+    </tr>
+    <tr>
+        <td>생일파티시간</td>
+        <td><input type="time"></td>
+    </tr>
+    <tr>
+        <td>생일파티장소</td>
+        <td><input type="text"></td>
+    </tr>
+</table>
+<!-- button 태그의 기본 타입이 submit임.
+그래서 button 태그를 기본 버튼으로 사용 시 
+반드시 type="button"으로 설정해야함.!** -->
+<button id="btnBirth"type="button">확인</button>
+
+
+<br><hr><br>
+
+<h3>placeholder 사용하기</h3>
+<!-- input 태그 사용 시 사용자에게 입력 데이터에 대한 힌트를 남기기 위한 속성 -->
+
+email : <input type="email" placeholder="ID@host"><br>
+홈페이지 : <input type="url" placeholder="http://"><br>
+전화번호 : <input type="tel" placeholder="010-1234-5678"><br>
+검색어 : <input type="search" placeholder="검색어"><br>
+        <input type="button"value="검색">
+
+        <br><hr><br>
+    <h3>fieldset 사용하기</h3>
+    <fieldset>
+        <legend>회원정보</legend>
+        이메일 : <input type="email"><br>
+        홈페이지 : <input type="url"><br>
+        전화번호 : <input type="tel"><br>
+    </fieldset>
+
+</form>
+
+<script>
+    var year = document.getElementById("year");
+    var mon = document.getElementById("mon");
+    var day = document.getElementById("day");
+    var birth = document.getElementById("birth");
+    var btn = document.getElementById("btnBirth");
+
+
+    //불러온 버튼 태그에 이벤트를 등록하는 명령어. 
+    btn.addEventListener("click", function() {
+        var birthDay = birth.value;
+        var arrBirthDay = birthDay.split("-");
+        //2000-05-20 => 2000,05,20 덩어리 세 개로 분리시킴.split
+        //그리고 분리된 것을 앞의 arrBirhtday
+
+        year.innerText = arrBirthDay[0];
+        mon.innerText = arrBirthDay[1];
+        day.innerText = arrBirthDay[2];
+    
+
+    });
+</script>
+
+
+
+
+<br><br><br><br><br><br><br><br>

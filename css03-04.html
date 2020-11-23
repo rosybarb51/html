@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 3-4</title>
+    <style>
+        div { font: normal24px verdana; }
+
+        .dropText { text-shadow: 3px 3px; }
+        .redText { text-shadow: 3px 3px deeppink; }
+        .blurText { text-shadow: 3px 3px 5px skyblue; }
+        .glowEffect { text-shadow: 0px 0px 3px deeppink }
+        .threeDEffect { 
+            color: rgb(191, 254, 255);
+            text-shadow: 2px 2px 4px rgb(90, 75, 75); }
+        .multiEffect {
+            color: yellow;
+            text-shadow: 2px 2px 2px darkorchid, 0 0 25px paleturquoise, 0 0 5px rgb(252, 0, 0);
+        }
+        .wordArtEffect {
+            color:skyblue;
+            text-shadow: 0px 0px 3px darkblue;
+        }
+
+        /* 음수값도 가능하다. 그림자 위치 바뀜 */
+        .redBox { box-shadow: 10px -10px rgb(216, 93, 52); }
+        .blurBox { box-shadow: 10px 10px 5px palevioletred; }
+        .multiEffect2 { box-shadow: 2px 2px 2px rgb(99, 26, 3), 0 0 25px rgb(64, 218, 218), 0 0 10px rgb(1, 68, 1); }
+        div > div {
+            width: 150px;
+            height: 70px;
+            padding: 10px;
+            border: 10px solid rgb(241, 184, 165);
+            background-image: url(./cat01.jpg);
+            background-size: 150px 100px;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <h3>text shadow</h3>
+    <div class="dropText">Drop Shadow</div>
+    <div class="redText">Color Shadow</div>
+    <div class="blurText">Blur Shadow</div>
+    <div class="glowEffect">Glow Shadow</div>
+    <div class="wordArtEffect">WordArt Shadow</div>
+    <div class="threeDEffect">3D Effect</div>
+    <div class="multiEffect">Multiple Shadow Effect</div>
+
+    <br><hr><br>
+    
+    <h3>box shadow</h3>
+    <div>
+    <div class="redBox">냥냥파워-☆</div>
+    <br>
+    <div class="blurBox">냥냥파워-☆</div>
+    <br>
+    <div class="multiEffect2">냥냥파워-☆</div>
+</div>
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

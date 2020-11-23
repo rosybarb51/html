@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 5-4</title>
+    <style>
+        #div1 > .ani1 {
+            width: 100px;
+            height: 100px;
+            background-color: darkorange;
+            animation-name: test1;
+            animation-duration: 4s;
+            animation-iteration-count: 5;
+        }
+
+        @keyframes test1 {
+            from { background-color: darkorange; }
+            to { background-color: dodgerblue; }
+            
+        }
+
+        /* animation 속성
+        @kdyframes : 애니메이션 사용 시 동작될 CSS 속성을 지정하는 함수
+            - from, to 속성을 사용하거나, 0~ 100까지의 %로 동작할 애니메이션을 지정할 수 있음
+              0% {}
+            100% {} ->이런 식으로..(여러단계로 해도 됨) from to 는 위처럼. 
+
+        animation-duration : 애니메이션 사용 시 애니메이션이 완료되는데 소요되는 시간을 설정
+        
+        animation-delay : 애니메이션 사용 시 애니메이션 시작 지연 시간을 설정
+            - 음수 사용 시 지정한 시간만큼 애니메이션이 진행된 형태로 동작됨
+
+        animation-iteration-count : 애니메이션 사용 시 반복 실행될 횟수 설정
+            -infinite 사용 시 무한 반복
+
+        animation-direction : 애니메이션 사용 시 애니메이션 재생 방향을 설정
+            - normal(기본값), reverse(역방향), alternate(왕복), alternavte-reverse(역방향 왕복)
+
+        animation-timing-function : 애니메이션 사용 시 애니메이션의 동작 속도 곡선을 지정
+            - ease(기본값), linear, ease-in, ease-out, ease-in-out, cubic-bezier(n, n, n, n)
+
+        animation-fill-mode : 애니메이션 사용 시 애니메이션 시작 상태를 적용할 것인지에 대한 설정
+            - none(기본값), forwards(마지막키 프레임값을 유지), backwards(첫번째 키프레임값을 유지, 애니메이션 동작 방향에 따라 다름), both(포워드랑 백워드 기능 다 가지고 있음, 앞뒤 키프레임값을 모두 유지, 방향에 따라 다름)
+        */
+
+        #div2 .ani2 {
+            width: 100px;
+            height: 100px;
+            background-color: indianred;
+            /* relative 넣는 이유 : 기본 형태인 static하고 똑같은데 다른 점은 left, right, top, bottom 태그를 사용해서 html 태그의 위치를 설정할 수 있음  */
+            position: relative;
+            /* 애니메이션 동작하는 애는 누구냐 */
+            animation-name: test2;
+            /* 애니메이션 시간은 얼마나 되냐 */
+            animation-duration: 4s;
+            color: salmon;
+            text-align: center;
+            /* delay는 2초 있다가 시작됨. 1s는 초단위고, 1000ms로 표시할 수 있음
+            500ms나 0.5s 나 똑같다, 음수 넣으면 그 수만큼 지난 시간에서 시작함 */
+            animation-delay: 500ms;
+            animation-iteration-count: 5;
+            animation-direction: alternate-reverse;
+        }
+
+        @keyframes test2 {
+            0% {
+                background-color: indianred;
+                left: 0px;    
+                top: 0px;
+            }
+            25% {
+                background-color: yellowgreen;
+                left: 200px;    
+                top: 0px;
+            }
+            50% {
+                background-color: royalblue;
+                left: 200px;    
+                top: 200px;
+            }
+            75% {
+                background-color: rebeccapurple;
+                left: 0px;    
+                top: 200px;
+            }
+            100% {
+                background-color: indianred;
+                left: 0px;    
+                top: 0px;
+            }
+        }
+
+        #div3 .box {
+            width: 100px;
+            height: 50px;
+            background-color: tomato;
+            font-size: bold;
+            position: relative;
+            animation-name: test3;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes test3 {
+            from { left: 0px;}
+            to { left: 500px;}
+        }
+        /* 시작부터 끝까지 동일한 애니메이션 속도 */
+        #div3 .linear { animation-timing-function: linear;}
+        /* 시작하고 끝이 느리고 중간은 빠른 속도 */
+        #div3 .ease { animation-timing-function: ease;}
+        /* 시작은 느리고 중간부터 끝까지 빠른 속도 */
+        #div3 .ease-in { animation-timing-function: ease-in;}
+        /* 시작부터 중간까지 빠르고 끝은 느린 속도 */
+        #div3 .ease-out { animation-timing-function: ease-out;}
+        /* 시작과 끝이 느리고 중간은 빠른 속도, ease와는 속도가 다르다*/
+        #div3 .ease-in-out { animation-timing-function: ease-in-out;}
+        /* cubic-bezier(n, n, n, n) : 3차원 베지어 함수를 통해서 속도를 조절함 
+        쓰기 어려워서 잘 안 씀...->3차원 베지어 곡선이라고 검색.. */
+
+        #div4 .ani4 {
+            width: 100px;
+            height: 100px;
+            background-color: violet;
+            position: relative;
+            animation-name: test4;
+            animation-duration: 3s;
+            animation-delay: 2s;
+            /* forwards : 마지막 프레임이 끝난 후 마지막 프레임상태를 유지 */
+            /* backwards : delay 적용 시 첫 프레임의 상태를 delay 시간동안 유지 */
+            /* none : 처음 상태 계속 유지,, 포워드랑 같아 보이지만 방향을 전환하면 달라진다 */
+            animation-fill-mode: forwards;
+            animation-direction: alternate;
+        }
+
+        @keyframes test4 {
+            from { 
+                left: 0px; 
+                background-color: yellow;
+            }
+            to { 
+                left: 200px; 
+                background-color: turquoise;
+            }
+        }
+
+        /* animation : 위의 다른 속성들을 한 번에 입력하기 위한 속성 
+        순서 name > duration > timing-function > delay > iteration-count > direction
+        */
+
+        #div5 .ani5 {
+            width: 100px;
+            height: 100px;
+            background-color: mediumslateblue;
+            position: relative;
+            /* animation 네임과 시간은 적어도 적어줘야한다. 뒤에 두개는 안 써도 된다. */
+            animation: test5 4s linear 2s infinite alternate;
+        }
+
+        @keyframes test5 {
+            0% { background-color: mediumslateblue; left: 0px; top: 0px;}
+            25% {background-color: rgb(248, 244, 9); left: 200px; top: 0px;}
+            50% {background-color: rgb(255, 99, 99); left: 200px; top: 200px;}
+            75% {background-color: rgb(27, 230, 88); left: 0px; top: 200px;}
+            100% {background-color: mediumslateblue; left: 0px; top: 0px;}
+        }
+    </style>
+</head>
+<body>
+    <!-- 키 프레임 예제 -->
+    <div id="div1">
+        <h3>animation 태그 사용하기</h3>
+        <div class="ani1"></div>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div2">
+        <h3>animation 사용하기2</h3>
+        <div class="ani2">뿡</div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><hr><br>
+
+    <div id="div3">
+        <h3>애니메이션 속도 곡선 사용</h3>
+        <div class="box linear">linear</div>
+        <div class="box ease">ease</div>
+        <div class="box ease-in">ease-in</div>
+        <div class="box ease-out">ease-out</div>
+        <div class="box ease-in-out">ease-in-out</div>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div4">
+        <h4>fill-mode 사용</h4>
+        <div class="ani4"></div>
+    </div>
+    <br><hr><br>
+
+    <div id="div5">
+        <h4>animation 사용</h4>
+        <div class="ani5"></div>
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

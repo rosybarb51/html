@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 4-5</title>
+    <style>
+        /* box-sizing : width, height 를 설정할 때 그 기준을 border 로 하는지, 아니면 content 로 하는지 설정하는 속성 */
+        * {
+            box-sizing: border-box;
+        }
+
+        .header,
+        .footer {
+            background-color: darksalmon;
+            color: cornsilk;
+            padding: 15px;
+        }
+
+        .cloumn {
+            float: left;
+            padding: 15px;
+        }
+
+        /* 자식태그에서 float 사용했으면 부모태그에서 after 사용해서 풀어줘야함(clear) */
+        .main::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .sidebar {
+            width: 25%;
+        }
+
+        .content {
+            width: 75%;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar li {
+            padding: 8px;
+            margin-bottom: 8px;
+            background-color: darkseagreen;
+            color: cornsilk;
+        }
+
+        .sidebar li:hover {
+            background-color: rgb(180, 78, 44);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>float으로 레이아웃 만들기</h1>
+    </div>
+    <br>
+    <div class="main">
+        <div class="column sidebar">
+            <ul>
+                <li>메뉴 1</li>
+                <li>메뉴 2</li>
+                <li>메뉴 3</li>
+                <li>메뉴 4</li>
+            </ul>
+        </div>
+        <div class="column content">
+            <h1>메뉴 2</h1>
+            <p>명령·규칙 또는 처분이 헌법이나 법률에 위반되는 여부가 재판의 전제가 된 경우에는 대법원은 이를 최종적으로 심사할 권한을 가진다. 국무총리·국무위원 또는 정부위원은 국회나 그 위원회에
+                출석하여 국정처리상황을 보고하거나 의견을 진술하고 질문에 응답할 수 있다. 모든 국민은 근로의 의무를 진다. 국가는 근로의 의무의 내용과 조건을 민주주의원칙에 따라 법률로 정한다.</p>
+            <p>국무회의는 대통령·국무총리와 15인 이상 30인 이하의 국무위원으로 구성한다. 모든 국민은 거주·이전의 자유를 가진다.</p>
+        </div>
+    </div>
+    <div class="footer">
+        <p>Footer</p>
+    </div>
+</body>
+
+</html>

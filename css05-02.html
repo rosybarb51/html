@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 5-2</title>
+    <style>
+        div > ul {
+            background-color: gainsboro;
+            padding: 10px 10px 10px 50px;
+            list-style-position: inside;
+        }
+
+        div > ul li {
+            background-color: rgb(110, 201, 173);
+            margin-bottom: 5px;
+        }
+
+        #menubar {
+            background-color: lightsalmon;
+        }
+
+        #menubar ul {
+            /* ul 태그 자체에 마진과 패딩 값을 다 없앴고, 너비를 적당히 지정함 */
+            margin: 0;
+            padding: 0;
+            width: 567px;
+        }
+
+        #menubar ul li {
+            /* display로 메뉴 만들면 크기 조절이 안돼서,, 보통 float으로 만든다.  */
+            /* display: inlie; 을 걸어서 원래 세로형태로 나오는 것을 가로형태로 나오게 함 */
+            display: inline;
+            /* 리스트 스타일 타입을 논으로 줘서 앞에 마커 부분을 지웠음 */
+            list-style-type: none;
+            /* 패딩이 두개가 들어가면 앞에것이 상하값 뒤쪽이 좌우값 */
+            /* 리스트에 준 값이니까 글자에 적용되는 것 */
+            padding: 0px 15px;
+        }
+
+        #menubar ul li a {
+            color: rgb(235, 241, 247);
+            /* 텍스트데코레이션 논을해서 선을 삭제함 */
+            text-decoration: none;
+        }
+        /* 마우스 올리면 색달라지게 함 */
+        #menubar ul li a:hover { color: rgb(212, 69, 54); }
+
+    </style>
+</head>
+<body>
+    <h3>list-style 변경하기</h3>
+    <div>
+        <ul>
+            <li>붕어빵</li>
+            <li>국화빵</li>
+            <li>호떡</li>
+        </ul>
+    </div>
+
+    <br><hr><br>
+
+    <!-- <nav> : 시멘틱 태그로써 div 태그와 동일한 기능을 가지고 있으나 네비게이션바 및 메뉴를 생성할 때 사용하는 태그(알아보기쉽게 사용)-->
+    <nav id="menubar">
+        <!-- 메뉴는 보통 ul로 만든다. -->
+        <ul>
+            <!-- li로 목록을 만든다. 그냥 li 만들면 세로형태로 나와서 위에 스타일에 display: inline 을 줘서 가로형태로 나오게 함 -->
+            <li><a href="#">계란빵</a></li>
+            <li><a href="#">붕어빵</a></li>
+            <li><a href="#">국화빵</a></li>
+            <li><a href="#">호떡</a></li>
+            <li><a href="#">호빵</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

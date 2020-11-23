@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 3-3</title>
+    <style>
+        /* background : html 태그의 배경에 관련된 속성, background-color,
+         background-image, background-repeat, background-position, 
+         background-attachment */
+        /* backgound-color : 배경색 설정, 색상명, hex, rgb() 을 사용함, 
+         투명도 설정이 가능(opacity, rgba() 사용)
+         - opacity 속성 사용 시 해당 태그에 포함된 자손태그들도 투명화됨*/
+        
+        #bg-color > h1 { background: darkcyan; }
+        #bg-color > .bg { background: lightcoral; }
+        #bg-color p { background: darkorchid; }
+
+        
+
+        .box > .first { 
+            background-color: limegreen;
+            opacity: 0.1; 
+        }
+
+        .box > .second { 
+            opacity: 0.3; 
+            background-color: limegreen;
+        }
+        .box > .third { 
+            opacity: 0.6;
+            background-color: limegreen;
+        }
+
+        .box2 > .first { background-color: rgba(50, 205, 50, 0.1); }
+        .box2 > .second { background-color: rgba(50, 205, 50, 0.3); }
+        .box2 > .third { background-color: rgba(50, 205, 50, 0.6); }
+
+        /* 
+        background-image : 해당 태그의 배경에 이미지를 사용하는 속성, 
+        background-repeat, position, attachment 를 통해서 이미지 출력
+        방식을 변경할 수 있음
+            - url() : 각종 미디어의 경로를 입력하는 속성, 상대/절대경로 사용
+            가능, 외부 서버의 파일도 로딩가능
+
+        background-repeat : background-image 속성 사용 시 이미지를 가로/
+        세로로 반복할 것인지를 설정하는 속성
+            - repeat-x, repeat-y, no-repeat
+        */
+        .bg-img { 
+            width: 500px;
+            height: 300px;
+            background-image: url(./img/pengsu05.jpg); }
+
+        .bg-repeat > div { 
+            border: 1px solid black;
+            width: 700px;
+            height: 700px;
+            background-image: url(./pengsu04.jpg);
+         }
+
+         .bg-rex {background-repeat: repeat-x;}
+         .bg-rey {background-repeat: repeat-y;}
+         .bg-no {background-repeat: no-repeat;}
+
+         /* 
+         background-position : background-image 속성 사용 시 화면에 출력한
+         이미지를 화면에 출력할 위치를 설정하는 속성
+         속성값을 2개 입력(가로의 위치, 세로의 위치)
+         지정된 위치값(loft, right, center, top, buttom), %(기본값은 0%, 0%)
+         으로 속성값 입력
+         */
+         /* % 사용 시 0% 는 왼쪽/상단, 100%는 오른쪽/하단을 뜻함 */
+
+
+         #bg-position > div {
+             width: 500px;
+             height: 500px;
+             border: 1px solid black;
+             background-image: url(./pengsu04.jpg);
+             background-repeat: no-repeat;
+         }
+
+         .bg-pos1 {
+             background-position: center center;
+         }
+
+         .bg-pos2 {
+             background-position: 50% 50%;
+         }
+
+
+         /* 
+         background-size : background-image 사용 시 배경 이미지를 어떠한
+         방식으로 출력할 것인지 설정하는 속성
+         auto(원본 이미지 크기), 길이(px, %), cover(가로 크기에 맞게 이미지
+         확대), contain(화면 크기에맞게 확대축소)
+         길이 입력 시 가로값 세로값 2번 입력 
+         */
+
+         #bg-size > div {
+             width: 350px;
+             height: 350px;
+             border: 3px solid rgb(9, 109, 175);
+             background-image: url(./cat01.jpg);
+             background-repeat: no-repeat;
+         }
+
+         .bg-sz { background-size: 100% 100%; }
+         .bg-cover { background-size: cover; }
+         .bg-contain { background-size: contain; }
+         /* 
+         background-attachment : 배경 이미지를 마우스 스크롤 시 화면에
+         고정여부를 설정하는 속성
+         fixed(화면에 고정), scroll(스크롤에 따라 배경이 움직임)
+         */
+
+         body {
+             background-image: url(./cat01.jpg);
+             background-repeat: no-repeat;
+             background-position: center center;
+             background-attachment: fixed;
+         }
+
+        /* background : background-color, background-image, background-
+         attachment, backgound-position, background-repeat의 속성을 한 번에
+         설정하는 속성 
+         background-color > background-image > background-repeat >
+         background-atttachment > background-position 순서로 입력
+        */
+
+        #bgbg > div {
+            width: 500px;
+            height: 500px;
+            border: 3px solid darkorange;
+        }
+
+        .bg1 {
+            background-color: darkkhaki;
+            background-image: url(./pengsu04.jpg);
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+        .bg2 { background: darksalmon url(./pengsu04.jpg) no-repeat center center; }
+
+    </style>
+</head>
+<body>
+    <h3>background-color</h3>
+    <div id="bg-color">
+        <h1>CSS background-color 사용하기</h1>
+        <div class="bg">div 태그에 background-color 사용
+            div 태그에 background-color 사용
+            <p>p 태그에 background-color 사용</p>
+            div 태그에 background-color 사용
+        </div>
+    </div>  
+
+    <hr>
+
+    <div class="box">
+        <div class="first">opacity 0.1</div>
+        <div class="second">opacity 0.3</div>
+        <div class="third">opacity 0.6</div>
+        <div>opacity 1.0(기본)</div>
+    </div>
+
+    <hr>
+    
+    <div class="box2">
+        <div class="first">rgba 0.1</div>
+        <div class="second">rgba 0.3</div>
+        <div class="third">rgba 0.6</div>
+        <div>rgba 1.0(기본)</div>
+
+
+    </div>
+
+    <br><hr><br>
+
+    <h3>background-image 사용하기</h3>
+    <div id="bg-image">
+        <div class="bg-img">
+            <p>background-image를 사용하여 배경 이미지 사용</p>
+        </div>
+        <div class="bg-repeat">
+            <div class="bg-re">repeat</div>
+            <div class="bg-rex">repeat-x</div>  
+            <div class="bg-rey">repeat-y</div>
+            <div class="bg-no">no-repeat</div>
+        </div>
+
+        <hr>
+
+        <h3>background-position</h3>
+        <div id="bg-position">
+            <div class="bg-pos1"></div>
+            <div class="bg-pos2"></div>
+        </div>
+
+        <hr>
+        <h3>background-size</h3>
+        <div id="bg-size">
+            <div class="bg-sz">사이즈 직접 입력</div>
+            <div class="bg-cover">cover 사용</div>
+            <div class="bg-contain">contain 사용</div>
+        </div>
+        <hr>
+        <h3>background</h3>
+        <div id="bgbg">
+            <div class="bg1"></div>
+            <div class="bg2"></div>
+        </div>
+    </div>
+
+   
+
+ 
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 6-1</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 100px;
+            background-color: plum;
+            border: 1px solid royalblue;
+            margin: 50px;
+        }
+
+        #div1 .scalex {
+            margin: 0 100px;
+            transform: scaleX(2);
+        }
+        #div1 .scaley {
+            margin: 100px 0;
+            transform: scaleY(2);
+        }
+
+        /* skew */
+        #div2 .skew {
+            transform: skew(20deg, 10deg);
+        }
+        #div2 .skewx {
+            transform: skewX(20deg);
+        }#div2 .skewy {
+            transform: skewY(20deg);
+        }
+
+        /* 
+        matrix() : 모든 2D transform을 하나로 출력하는 방식 
+        matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY())를 순서대로 입력하여 한 번에 모든 효과를 출력함
+        */
+
+        #div3 .mat1 {
+            transform: matrix(1, -0.3, 0, 1, 0, 0);
+        }
+
+        #div3 .mat2 {
+            transform: matrix(1, 0, 0.5, 1, 150, 0);
+        }
+
+        /* 
+        transform 속성의 경우 각종 웹 브라우저에서 정상적으로 인식하지 못 할 경우가 발생한다. (웹 브라우저 호환성때문에)
+        ->그리하여 각 부라우저마다 transform을 동작시키기 위한 저마다의 transform 속성이 따로 존재함. 
+        -webkit-transform : 크롬, 사파리  
+        -moz-transform : 파이어폭스
+        -ms-transform : 인터넷 익스플로러
+        -o-transform : 오페라 
+        transform : 기본 transform 속성
+        ====> -까지 다 써야한다. 뒤의 속성이 있는 함수부분은 그대로 사용하고 앞에 저것들을 적어줘야한다. 
+        */
+
+        /* 현재 거의 호환성 문제가 해결됐기 때문에 기본형인 transform만 사용하면 큰 문제가 발생하지 않음. 혹시나 동작하지 않는 경우가 발생하면 아래와같이 다 적어줘야한다. 5개 다 적어야한다. 어느 브라우저에서 열어볼지 모르기때문에. */
+        #div4 .scale2 {
+            -webkit-transform: scale(2, 2);
+            -moz-transform: scale(2, 2);
+            -ms-transform: scale(2, 2);
+            -o-transfrom: scale(2, 2);
+            transform: scale(2, 2);
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <h3>scaleX, scaleY</h3>
+        <div class="box">원본 DIV</div>
+        <hr>
+        <div class="box scalex">sclaeX를 사용하여 좌우로 늘리기</div>
+        <hr>
+        <div class="box scaley">sclaeY를 사용하여 상하로 늘리기</div>
+    </div>
+
+    <div id="div2">
+        <h3>skew, skewX, skewY</h3>
+        <div class="box">원본 div</div>
+        <br><hr>
+        <div class="box skew">skew를 사용하여 비틀기</div>
+        <br><hr>
+        <div class="box skewx">skewX를 사용하여 비둘기</div>
+        <br><hr><br>
+        <div class="box skewy">skewY를 사용하여 비틀기</div>
+        <br>
+    </div>
+    <br><br><br>
+
+    <div id="div3">
+        <h3>matrix</h3>
+        <div class="box">원본 div</div>
+        <br><hr><br>
+        <div class="box mat1">matrix를 사용한 div1</div>
+        <br><hr><br>
+        <div class="box mat2">matrix를 사용한 div2</div>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div4">
+        <h3></h3>
+        <div>호환성을 위한 transform: scale</div>
+    </div>
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
